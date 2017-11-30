@@ -2,7 +2,7 @@ module Api
   module V1
     class CocktailsController < ApplicationController
       def index
-        render json: Cocktail.all
+        render json: Cocktail.all.map { |c| {id: c.id, name: c.name} }
       end
 
       def show
@@ -10,7 +10,7 @@ module Api
       end
 
       def create
-
+        render json: {}
       end
 
       def edit
